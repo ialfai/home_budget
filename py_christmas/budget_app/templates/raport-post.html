@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href="/">Strona główna</a>
+<a href="/raport">Wygeneruj raport</a>
+
+<table>
+    <thead>
+    <th>description</th>
+    <th>date</th>
+    <th>owner</th>
+    <th>category</th>
+    </thead>
+
+    <tbody>
+    {%for i in transactions%}
+    <tr>
+    <td>{{i.descrioption}}</td>
+    <td>{{i.date}}</td>
+    <td>{{i.owner.name}}</td>
+    <td style="color: {{i.category.color}}">{{i.category.name}}</td>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+Łączne wydatki to: {{suma}}
+
+</body>
+</html>

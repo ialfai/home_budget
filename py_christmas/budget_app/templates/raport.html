@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+
+<form method="post">
+      {% csrf_token %}
+    <h1>Generowanie raportu</h1>
+    <label for="text">q</label>
+    <input type="text" name="description" id="q"><br><br>
+
+    {{response}}
+
+    <h2>Choose start and end dates</h2>
+    <label for="date">start</label>
+    <input type="date" id="date_start" name="start_date" value={{data_start}}><br><br>
+    <label for="date">end</label>
+    <input type="date" id="date_end" name="end_date" value={{data_end}}><br><br>
+
+
+    <h2>Choose category</h2>
+  {%for category in categories%}
+
+    <input type="checkbox" name="category" id={{category.id}} value={{category.id}}>
+    <label for={{category.id}} style="color: {{category.color}}">{{category.name}}</label><br>
+
+    {%endfor%}
+
+    <h2>Choose family member</h2>
+    {%for member in family_members%}
+
+    <input type="checkbox" name="member" id={{member.id}} value={{member.id}} checked>
+    <label for={{member.id}}>{{member.name}}</label><br><br>
+
+    {%endfor%}
+
+    <h2>Choose something</h2>
+    <input type="number" name="min" id="min" value="0">
+    <label>min</label><br><br>
+
+    <input type="number" name="max" id="max" value="0">
+    <label>max</label><br><br><br>
+
+    <button type="submit">Generuj Raport</button>
+
+
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+form {
+    width: 100%; /* ustaw szerokość na 100%... */
+    background-color: darkseagreen;
+    margin: 20px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+}
+input[type=submit] {
+    color: red;
+    size: A3;
+    position: center;
+}
+
+
+input[type=text] {
+  padding:10px;
+  border:0;
+  box-shadow: dimgray ;
+  border-radius: 10px;
+}
+
+body {
+    background-image: url("money.jpg");
+}
+
+@media (min-width: 600px) { /* tu się zaczynają style na większe ekrany */
+      input.form {          width: 400px; /* 400px ale tylko
+      na większych niż smartfon urządzeniach. Na mniejszych - dalej 100% */
+          text-decoration: underline; /* zbiory styli tutaj (wewnątrz @media) */
+                                      /* i tych domyślnych (na górze) nie muszą być takie same! */      }
+      footer { font-weight: bold; }
+      /* nie chcę zmieniać koloru submita, więc nie muszę powtarzać tutaj jego styli */} /*
+       pamiętamy że @media też trzeba zamknąć klamerką! */
+
+
+

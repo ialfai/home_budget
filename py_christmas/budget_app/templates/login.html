@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Login Form</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="name">Add new family member</label>
+    <input type="text" name="new_name" id="new_name"><br><br>
+
+    <label for="family_member">Which family member are you</label>
+    <select name="family_member" id="family_member">
+
+        {%for i in names%}
+
+           <option> {{i}} </option>
+
+        {%endfor%}
+
+        <option value="new">new</option>
+    </select><br><br>
+
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name"><br><br><br>
+
+    <input type="submit" value="Log in">
+
+
+
+</form>
+    <br><br>
+{{success_message}}
+{{error1}}
+
+</body>
+</html>

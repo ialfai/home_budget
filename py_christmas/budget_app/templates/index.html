@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<h1>Budżet domowy</h1><h3>Wersja 1.0, Autor: Kasia Zgoda</h3>
+
+Witaj {{name}}
+
+
+
+<form action="/addSpenditure" method="post">
+    {% csrf_token %}
+    <h1>Add Expenditure</h1>
+    <label for="text">Description</label>
+    <input type="text" name="description" id="description"><br><br>
+    <ul id="hints"></ul>
+    <label for="text">amount</label>
+    <input type="number" name="amount"><br><br>
+    <label for="date">Date</label>
+    <input type="date" id="date" name="date"><br><br>
+
+
+
+    {%for category in categories%}
+
+    <input type="radio" name="category" id={{category.id}} value={{category.id}}>
+    <label for={{category.id}}>{{category.name}}</label><br>
+
+    {%endfor%}
+
+<br>
+<button type="submit">Add spending</button>
+<br><br><br><br>
+</form>
+
+
+<form action="/dodaj-wplyw" method="post">
+    {% csrf_token %}
+    <h1>Add Income</h1>
+
+    <label for="text">amount</label>
+    <input type="number" name="amount"><br><br>
+    <label for="date">Date</label>
+    <input type="date" id="date1" name="date1"><br><br>
+
+
+<br>
+<button type="submit">Add Income</button>
+
+</form>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
